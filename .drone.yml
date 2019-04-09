@@ -1,10 +1,9 @@
 pipeline:  
   build:
-    image: docker
+    image: node:lts-alpine
     commands:
-      - docker build -t dodoreg.azurecr.io/ahoy.js ./
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - npm install
+      - npm run build
     when:
       event: [ push ]
       branch: [ master ]

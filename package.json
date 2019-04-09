@@ -7,6 +7,8 @@
   "module": "dist/ahoy.esm.js",
   "scripts": {
     "build": "rollup -c",
+    "prepublishOnly": "npm version",
+    "publish": "git push origin --tags",    
     "lint": "eslint src",
     "test": "zuul test/ahoy_test.js",
     "test:local": "zuul --local 8080 test/ahoy_test.js"

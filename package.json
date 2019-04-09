@@ -1,6 +1,6 @@
 {
   "name": "@dodopizza/ahoy",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "homepage": "https://github.com/dodopizza/ahoy.js",
   "description": "Simple, powerful JavaScript analytics",
   "main": "dist/ahoy.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm version minor",
-    "publish": "git push origin --tags",    
+    "publish": "git push origin --tags",
     "lint": "eslint src",
     "test": "zuul test/ahoy_test.js",
     "test:local": "zuul --local 8080 test/ahoy_test.js"

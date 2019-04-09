@@ -1,0 +1,17 @@
+pipeline:  
+  build:
+    image: docker
+    commands:
+      - docker build -t dodoreg.azurecr.io/ahoy.js ./
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    when:
+      event: [ deployment ]
+      branch: [ master ]
+
+  publish:
+    image: plugins/npm
+    secrets: [ npm_username, npm_password, npm_email, npm_registry ]
+    when:
+      event: [ deployment ]
+      branch: [ master ]

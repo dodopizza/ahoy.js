@@ -24,6 +24,7 @@
   ],
   "license": "MIT",
   "publishConfig": {
+    "access": "restricted",
     "registry": "https://www.myget.org/F/dodopizza/npm/"
   },
   "repository": {

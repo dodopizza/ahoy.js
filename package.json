@@ -1,6 +1,6 @@
 {
   "name": "@dodopizza/ahoy",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "homepage": "https://github.com/dodopizza/ahoy.js",
   "description": "Simple, powerful JavaScript analytics",
   "main": "dist/ahoy.js",

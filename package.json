@@ -23,6 +23,7 @@
     "ankane"
   ],
   "license": "MIT",
+  "registry": "https://www.myget.org/F/dodopizza/npm/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dodopizza/ahoy.js.git"

@@ -1,16 +1,10 @@
 pipeline:  
-  build:
+  publish:
     image: node:lts-alpine
     commands:
       - npm install
       - npm run build
-    when:
-      event: [ push ]
-      branch: [ master ]
-
-  publish:
-    image: plugins/npm
-    secrets: [ npm_username, npm_password, npm_email, npm_registry ]
+      - npm publish
     when:
       event: [ push ]
       branch: [ master ]

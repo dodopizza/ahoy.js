@@ -5,6 +5,7 @@ pipeline:
       - npm install
       - npm run build
       - npm publish
+    secrets: [ nuget_user, nuget_password_base64 ]
     when:
       event: [ push ]
       branch: [ master ]

@@ -1,4 +1,3 @@
-import objectToFormData from "object-to-formdata";
 import Cookies from './cookies';
 
 let config = {
@@ -210,10 +209,7 @@ function trackEventNow(event) {
     let param = csrfParam();
     let token = csrfToken();
     if (param && token) data[param] = token;
-    // stringify so we keep the type
-    data.events_json = JSON.stringify(data.events);
-    delete data.events;
-    window.navigator.sendBeacon(eventsUrl(), objectToFormData(data));
+    window.navigator.sendBeacon(eventsUrl(), JSON.stringify(data));
   });
 }
 

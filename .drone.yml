@@ -1,11 +1,37 @@
-pipeline:
-  publish:
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build
+    pull: default
     image: node:lts-alpine
-    secrets: [ npm_username, npm_password, npm_email, npm_registry ]
     commands:
       - npm install
       - npm run build
-      - npm publish
     when:
-      event: [ push ]
-      branch: [ master ]
+      branch:
+        - master
+      event:
+        - push
+
+  - name: publish
+    pull: default
+    image: plugins/npm
+    environment:
+      NPM_EMAIL:
+        from_secret: npm_email
+      NPM_PASSWORD:
+        from_secret: npm_password
+      NPM_REGISTRY:
+        from_secret: npm_registry
+      NPM_USERNAME:
+        from_secret: npm_username
+    when:
+      branch:
+        - master
+      event:
+        - push

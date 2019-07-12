@@ -5,7 +5,8 @@ let config = {
   visitsUrl: "/ahoy/visits",
   eventsUrl: "/ahoy/events",
   page: null,
-  platform: "Web",
+  platform: "Web",  
+  source: null,
   useBeacon: true,
   startOnReady: false,
   trackVisits: true,
@@ -182,9 +183,11 @@ function eventData(event) {
   if (config.cookies) {
     data.visit_token = event.visit_token;
     data.visitor_token = event.visitor_token;
+    data.source = event.source;
   }
   delete event.visit_token;
   delete event.visitor_token;
+  delete event.source;
   return data;
 }
 
@@ -362,6 +365,7 @@ ahoy.track = function (name, properties) {
 
       event.visit_token = ahoy.getVisitId();
       event.visitor_token = ahoy.getVisitorId();
+      event.source = config.source;
 
       if (canTrackNow()) {
         trackEventNow(event);

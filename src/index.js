@@ -347,7 +347,7 @@ ahoy.track = function (name, properties) {
   let event = {
     name: name,
     properties: properties || {},
-    time: (new Date()).getTime() / 1000.0,
+    time: new Date().toISOString(),
     id: generateId(),
     js: true
   };

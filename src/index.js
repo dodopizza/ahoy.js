@@ -288,6 +288,7 @@ function createVisit() {
       let data = {
         visit_token: visitId,
         visitor_token: visitorId,
+        source: config.source,
         platform: config.platform,
         landing_page: window.location.href,
         screen_width: window.screen.width,
